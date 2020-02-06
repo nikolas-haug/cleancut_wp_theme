@@ -20,6 +20,9 @@ function cleancut_theme_support() {
         'primary' => __('Primary Menu'),
         'footer'=> __('Footer Menu')
     ) );
+
+    // Post format support
+    add_theme_support( 'post-formats', array('aside', 'gallery') );
 }
 add_action( 'after_setup_theme', 'cleancut_theme_support' );
 
@@ -38,6 +41,14 @@ function init_widgets($id) {
         'id' => 'subnav',
         'before_widget' => '<div class="sub-nav">',
         'after_widget' => '</div>',
+        'before_title' => '<h3 class="d-none">',
+        'after_title' => '</h3>'
+    ));
+    register_sidebar( array(
+        'name' => 'Bottom',
+        'id' => 'bottom',
+        'before_widget' => '<div class="section-a animated fadeInUp"><div class="container">',
+        'after_widget' => '</div></div>',
         'before_title' => '<h3 class="d-none">',
         'after_title' => '</h3>'
     ));

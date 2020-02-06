@@ -29,7 +29,18 @@
         </section>
 
         <?php $latest_blog_posts = new WP_Query(array(
-            'posts_per_page' => 3
+            'posts_per_page' => 3,
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'post_format',
+                    'field' => 'slug',
+                    'terms' => array(
+                        'post-format-aside',
+                        'post-format-gallery'
+                    ),
+                    'operator' => 'NOT IN'
+                )
+            )
         )); ?>
 
         <?php 
