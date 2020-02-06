@@ -4,7 +4,26 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <h1>Blog</h1>
+                    <h1>
+                        <?php 
+                            if(is_category( )) {
+                                single_cat_title();
+                            } else if(is_author( )) {
+                                the_post();
+                                echo 'Archives by Author: ' . get_the_author( );
+                            } else if(is_tag( )) {
+                                single_tag_title();
+                            } else if(is_day(  )) {
+                                echo 'Archives by Day: ' . get_the_date( );
+                            } else if(is_month(  )) {
+                                echo 'Archives by Month: ' . get_the_date( 'F Y' );
+                            } else if(is_year(  )) {
+                                echo 'Archives by Year: ' . get_the_date( 'Y' ); 
+                            } else {
+                                echo 'Archives';
+                            }
+                        ?>
+                    </h1>
                 </div>
                 <div class="col-md-8">
                     <?php if(is_active_sidebar( 'subnav' )) : ?>

@@ -51,6 +51,7 @@
             </div>
         </footer>
 
+        <script src="<?php bloginfo('template_url'); ?>/js/bootstrap.min.js"></script>
         <?php wp_footer();?>
     </body>
 </html>
